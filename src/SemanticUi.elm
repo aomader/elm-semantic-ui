@@ -3,6 +3,7 @@ module SemanticUi
     , render
 
     , Size(..)
+    , Sized
     , size
 
     , Button
@@ -19,7 +20,9 @@ abstractions.
 
 # Styling
 
-@docs Size, size
+## Sizes
+
+@docs Size, Sized, size
 
 # Elements
 
@@ -75,6 +78,7 @@ type Size
     | Huge
     | Massive
 
+{-| An element supporting different sizes. -}
 type alias Sized a =
     { a | size : Size }
 
