@@ -6,6 +6,9 @@ module SemanticUi
     , Sized
     , size
 
+    , Readable
+    , text
+
     , Button
     , button
     , button'
@@ -23,6 +26,12 @@ abstractions.
 ## Sizes
 
 @docs Size, Sized, size
+
+# Properties
+
+## text
+
+@docs Readable, text
 
 # Elements
 
@@ -102,6 +111,7 @@ size : Size -> Element (Sized a) -> Element (Sized a)
 size size = style <| \state -> { state | size <- size }
 
 
+{-| An element that is readable. -}
 type alias Readable a =
     { a | text : String }
 
