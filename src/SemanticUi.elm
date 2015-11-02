@@ -78,6 +78,18 @@ type Size
     | Huge
     | Massive
 
+fromSize : Size -> String
+fromSize size =
+    case size of
+        Mini -> "mini"
+        Tiny -> "tiny"
+        Small -> "small"
+        Medium -> "medium"
+        Large -> "large"
+        Big -> "big"
+        Huge -> "huge"
+        Massive -> "massive"
+
 {-| An element supporting different sizes. -}
 type alias Sized a =
     { a | size : Size }
@@ -118,7 +130,7 @@ button text =
 
         render state =
             H.div
-                [ A.class "ui button" ]
+                [ A.class ("ui button " ++ fromSize state.size) ]
                 [ H.text state.text ]
 
     in element state render
