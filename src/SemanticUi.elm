@@ -61,7 +61,7 @@ style : (a -> a) -> Element a -> Element a
 style f element =
     let oldStyle = element.state
         newStyle = f oldStyle
-    in { element | state <- newStyle }
+    in { element | state = newStyle }
 
 
 {-| Some elements might have different sizes. -}
@@ -83,7 +83,7 @@ type alias Sized a =
     button "click" |> size Huge
  -}
 size : Size -> Element (Sized a) -> Element (Sized a)
-size size = style <| \state -> { state | size <- size }
+size size = style <| \state -> { state | size = size }
 
 
 type alias Readable a =
@@ -94,7 +94,7 @@ type alias Readable a =
     button "click" |> text "DON'T click"
 -}
 text : String -> Element (Readable a) -> Element (Readable a)
-text text = style <| \state -> { state | text <- text }
+text text = style <| \state -> { state | text = text }
 
 
 {-| The button state driving the visual appearance. -}
